@@ -47,9 +47,10 @@
 			isa = PBXGroup;
 			children = (
 				A9393DA82A0ADF46002464CB /* ImageFeed */,
+				A9654A362A0FFD2C00787C05 /* ImageFeed.app */,
 				A986F19C2A0AF20400441AAF /* ImagesList */,
 				A99E2BFD2A0FB9B30023F4E0 /* Profile */,
-				A9654A362A0FFD2C00787C05 /* ImageFeed.app */,
+				A9A4DCFD2A111CD200171B2D /* SingleImageViewController */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,7 +60,6 @@
 				A9393DA92A0ADF46002464CB /* AppDelegate.swift */,
 				A9393DAB2A0ADF46002464CB /* SceneDelegate.swift */,
 				A9393DAF2A0ADF46002464CB /* Main.storyboard */,
-				A9654A372A102DE800787C05 /* SingleImageViewController.swift */,
 				A9393DB22A0ADF4A002464CB /* Assets.xcassets */,
 				A9393DB42A0ADF4A002464CB /* LaunchScreen.storyboard */,
 				A9393DB72A0ADF4A002464CB /* Info.plist */,
@@ -83,6 +83,14 @@
 				A99E2BF72A0FB7ED0023F4E0 /* ProfileViewController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		A9A4DCFD2A111CD200171B2D /* SingleImageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9654A372A102DE800787C05 /* SingleImageViewController.swift */,
+			);
+			path = SingleImageViewController;
 			sourceTree = "<group>";
 		};
 		A9B803392A0C23FA0096C848 /* Products */ = {
