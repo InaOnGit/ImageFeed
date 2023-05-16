@@ -207,9 +207,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="8cR-j1-q6o">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXr-zX-tWx">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="8cR-j1-q6o">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="132"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8cR-j1-q6o" secondAttribute="trailing" id="a5H-if-vNm"/>
+                                    <constraint firstAttribute="bottom" secondItem="8cR-j1-q6o" secondAttribute="bottom" id="aRa-rF-LXO"/>
+                                    <constraint firstItem="8cR-j1-q6o" firstAttribute="leading" secondItem="bXr-zX-tWx" secondAttribute="leading" id="c2d-Xw-jA5"/>
+                                    <constraint firstItem="8cR-j1-q6o" firstAttribute="top" secondItem="bXr-zX-tWx" secondAttribute="top" id="lnI-Sb-EAU"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="9cn-vV-P4I"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="qhH-oi-gO7"/>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynq-Yn-dth" userLabel="Backward Button">
                                 <rect key="frame" x="8" y="67" width="48" height="48"/>
                                 <constraints>
@@ -227,16 +240,17 @@
                         <color key="backgroundColor" name="yp_black"/>
                         <constraints>
                             <constraint firstItem="ynq-Yn-dth" firstAttribute="leading" secondItem="3cF-qS-5SA" secondAttribute="leading" constant="8" id="Ecz-d3-91n"/>
-                            <constraint firstItem="8cR-j1-q6o" firstAttribute="top" secondItem="rGE-SV-CTY" secondAttribute="top" id="ZFV-aD-pua"/>
-                            <constraint firstItem="8cR-j1-q6o" firstAttribute="leading" secondItem="rGE-SV-CTY" secondAttribute="leading" id="jU5-JH-Elm"/>
+                            <constraint firstItem="3cF-qS-5SA" firstAttribute="leading" secondItem="bXr-zX-tWx" secondAttribute="leading" id="L7d-gY-87N"/>
+                            <constraint firstItem="bXr-zX-tWx" firstAttribute="trailing" secondItem="3cF-qS-5SA" secondAttribute="trailing" id="RIe-0Y-UNQ"/>
+                            <constraint firstItem="bXr-zX-tWx" firstAttribute="top" secondItem="rGE-SV-CTY" secondAttribute="top" id="hU3-ps-Ot8"/>
+                            <constraint firstAttribute="bottom" secondItem="bXr-zX-tWx" secondAttribute="bottom" id="nUJ-2j-6SR"/>
                             <constraint firstItem="ynq-Yn-dth" firstAttribute="top" secondItem="3cF-qS-5SA" secondAttribute="top" constant="8" id="oPl-Vn-Vcd"/>
-                            <constraint firstAttribute="bottom" secondItem="8cR-j1-q6o" secondAttribute="bottom" constant="-44" id="vzd-da-Rda"/>
-                            <constraint firstAttribute="trailing" secondItem="8cR-j1-q6o" secondAttribute="trailing" constant="-21" id="yM7-Rz-2Db"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g3x-6s-SV4"/>
                     <connections>
                         <outlet property="imageView" destination="8cR-j1-q6o" id="Ie6-Yv-ZJU"/>
+                        <outlet property="scrollView" destination="bXr-zX-tWx" id="HBN-6K-p93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7e2-wY-sb6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
