@@ -32,6 +32,7 @@
 		A9654A372A102DE800787C05 /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 		A986F19A2A0AF18200441AAF /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		A99E2BF72A0FB7ED0023F4E0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A9CE696C2A21572D0069C3A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		A9393D9D2A0ADF46002464CB = {
 			isa = PBXGroup;
 			children = (
+				A9CE696C2A21572D0069C3A9 /* Constants.swift */,
 				A900CD5F2A190C68000DEC7E /* Helpers */,
 				A9393DA82A0ADF46002464CB /* ImageFeed */,
 				A9654A362A0FFD2C00787C05 /* ImageFeed.app */,
