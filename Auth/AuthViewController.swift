@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
-class AuthViewControllet: UIViewController {
-    
+class AuthViewController: UIViewController {
+    private let shwoWebViewSegueIdentifier = String("ShowWebView")
+            
 }
