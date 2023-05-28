@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Umf-u2-zaZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cXa-Mo-siD">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -206,9 +206,58 @@
             </objects>
             <point key="canvasLocation" x="-437.40458015267171" y="-806.33802816901414"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vnK-VN-uNI">
+            <objects>
+                <viewController id="cXa-Mo-siD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zpL-el-Kaa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="auth_screen_logo" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-GO-06V">
+                                <rect key="frame" x="166.66666666666666" y="396" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ZIz-RS-kX8"/>
+                                    <constraint firstAttribute="width" constant="60" id="mse-ol-IG6"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYA-hE-XB2" userLabel="Enter Button ">
+                                <rect key="frame" x="16" y="680" width="361" height="48"/>
+                                <color key="backgroundColor" name="yp_white"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Xfh-6V-gBB"/>
+                                </constraints>
+                                <color key="tintColor" name="yp_black"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Войти"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YtN-BZ-R6W"/>
+                        <color key="backgroundColor" name="yp_black"/>
+                        <constraints>
+                            <constraint firstItem="YtN-BZ-R6W" firstAttribute="bottom" secondItem="aYA-hE-XB2" secondAttribute="bottom" constant="90" id="Ea5-VN-KZh"/>
+                            <constraint firstItem="lv8-GO-06V" firstAttribute="centerY" secondItem="zpL-el-Kaa" secondAttribute="centerY" id="MKA-lp-0j1"/>
+                            <constraint firstItem="lv8-GO-06V" firstAttribute="centerX" secondItem="zpL-el-Kaa" secondAttribute="centerX" id="Qip-Tn-aYq"/>
+                            <constraint firstItem="aYA-hE-XB2" firstAttribute="leading" secondItem="YtN-BZ-R6W" secondAttribute="leading" constant="16" id="lPd-i0-cCa"/>
+                            <constraint firstItem="aYA-hE-XB2" firstAttribute="centerX" secondItem="zpL-el-Kaa" secondAttribute="centerX" id="pys-Bv-dAF"/>
+                            <constraint firstItem="YtN-BZ-R6W" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aYA-hE-XB2" secondAttribute="trailing" constant="16" id="wUp-ri-yfW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pc0-fs-pTq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-437" y="504"/>
+        </scene>
     </scenes>
     <resources>
         <image name="0" width="200" height="132"/>
+        <image name="auth_screen_logo" width="60" height="60"/>
         <image name="backward_button" width="24" height="24"/>
         <image name="heart_active" width="44" height="44"/>
         <image name="share_button" width="51" height="50"/>
