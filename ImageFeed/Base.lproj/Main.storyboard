@@ -305,20 +305,28 @@
                                     <action selector="didTapBackButton:" destination="986-yf-ZN5" eventType="touchUpInside" id="tOP-nx-oYt"/>
                                 </connections>
                             </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="n5Y-3g-an3">
+                                <rect key="frame" x="0.0" y="103" width="393" height="4"/>
+                                <color key="progressTintColor" name="yp_background"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Iwr-nu-zlr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="w6r-tX-UnD" firstAttribute="leading" secondItem="Iwr-nu-zlr" secondAttribute="leading" id="4XM-dd-Wzp"/>
+                            <constraint firstItem="n5Y-3g-an3" firstAttribute="top" secondItem="w6r-tX-UnD" secondAttribute="bottom" id="IJu-Fw-XA3"/>
+                            <constraint firstItem="n5Y-3g-an3" firstAttribute="leading" secondItem="fel-YE-0HF" secondAttribute="leading" id="TUy-tu-Suc"/>
                             <constraint firstItem="w6r-tX-UnD" firstAttribute="top" secondItem="Iwr-nu-zlr" secondAttribute="top" id="avU-6p-eDZ"/>
                             <constraint firstAttribute="bottom" secondItem="3EM-ZB-AbB" secondAttribute="bottom" id="dA0-cy-7rz"/>
                             <constraint firstItem="3EM-ZB-AbB" firstAttribute="leading" secondItem="fel-YE-0HF" secondAttribute="leading" id="e6c-Et-B3F"/>
                             <constraint firstAttribute="trailing" secondItem="3EM-ZB-AbB" secondAttribute="trailing" id="ouC-wn-uov"/>
+                            <constraint firstItem="n5Y-3g-an3" firstAttribute="trailing" secondItem="fel-YE-0HF" secondAttribute="trailing" id="qyo-65-TfA"/>
                             <constraint firstItem="3EM-ZB-AbB" firstAttribute="top" secondItem="fel-YE-0HF" secondAttribute="top" id="wTf-Xu-Xxr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vrp-WX-9A6"/>
                     <connections>
+                        <outlet property="progressView" destination="n5Y-3g-an3" id="ixA-OI-T9o"/>
                         <outlet property="webView" destination="3EM-ZB-AbB" id="W8p-mD-XfP"/>
                     </connections>
                 </viewController>
@@ -336,6 +344,9 @@
         <image name="share_button" width="51" height="50"/>
         <image name="tab_editorial_active" width="30" height="30"/>
         <image name="tab_profile_active" width="31" height="30"/>
+        <namedColor name="yp_background">
+            <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="yp_black">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -25,6 +25,8 @@ final class WebViewViewController: UIViewController {
         delegate?.webViewViewControllerDidCancel(self)
     }
     
+    @IBOutlet private var progressView: UIProgressView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
