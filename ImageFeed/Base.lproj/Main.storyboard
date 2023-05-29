@@ -277,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="-3355" y="-1506"/>
         </scene>
-        <!--Web View Controller-->
+        <!--Web View View Controller-->
         <scene sceneID="WPA-Ed-OJU">
             <objects>
-                <viewController id="986-yf-ZN5" customClass="WebViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="986-yf-ZN5" customClass="WebViewViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fel-YE-0HF">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
