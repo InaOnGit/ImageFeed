@@ -16,7 +16,6 @@ protocol WebViewViewControllerDelegate: AnyObject {
 }
 
 final class WebViewViewController: UIViewController {
-    
     @IBOutlet private var webView: WKWebView!
     
     weak var delegate: WebViewViewControllerDelegate?
@@ -24,7 +23,6 @@ final class WebViewViewController: UIViewController {
     @IBAction private func didTapBackButton(_ sender: Any?) {
         delegate?.webViewViewControllerDidCancel(self)
     }
-    
     @IBOutlet private var progressView: UIProgressView!
     
     override func viewDidLoad() {
@@ -36,7 +34,7 @@ final class WebViewViewController: UIViewController {
         urlComponents.queryItems = [
             URLQueryItem(name: "client_id", value: AccessKey),
             URLQueryItem(name: "redirect_uri", value: RedirectedURI),
-            URLQueryItem(name: "response", value: "code"),
+            URLQueryItem(name: "response_type", value: "code"),
             URLQueryItem(name: "scope", value: AccessScope)
         ]
         let url = urlComponents.url!
@@ -57,7 +55,7 @@ final class WebViewViewController: UIViewController {
         updateProgress()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         webView.removeObserver(
             self,
@@ -76,7 +74,6 @@ final class WebViewViewController: UIViewController {
         } else {
             super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
-        
     }
     
     private func updateProgress() {
@@ -87,10 +84,10 @@ final class WebViewViewController: UIViewController {
 
 extension WebViewViewController: WKNavigationDelegate {
     func webView(
-        _webView: WKWebView,
-        decisionPolicyFor navigationAction: WKNavigationAction,
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
-    ){
+    ) {
         if let code = code(from: navigationAction) {
             delegate?.webViewViewController(_vc: self, didAuthenticateWithCode: code)
             decisionHandler(.cancel)
@@ -113,5 +110,3 @@ extension WebViewViewController: WKNavigationDelegate {
         }
     }
 }
-
-
