@@ -56,7 +56,7 @@ final class ProfileViewController: UIViewController {
         messageLabel.text = "Hello, world!"
         messageLabel.font = UIFont.systemFont(ofSize: 13.0)
         messageLabel.textColor = .white
-        
+        messageLabel.numberOfLines = 0
         
         messageLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(messageLabel)
