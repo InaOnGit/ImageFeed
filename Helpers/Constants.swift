@@ -20,5 +20,5 @@ enum Constants {
     static let unsplashAuthorizeURL = "https://unsplash.com/oauth/authorize"
     
     //MARK: storage constants
-    static let bearerToken = "https://unsplash.com/oauth/token"  //  у Миши тут "bearerToken"
+    static let bearerToken = "https://unsplash.com/oauth/token"  
 }

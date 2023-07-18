@@ -32,8 +32,7 @@ final class OAuth2Service {
         storage.token != nil
     }
     
-    func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void)
-    {
+    func fetchOAuthToken(_ code: String, completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
         if lastCode == code { return }
         task?.cancel()
@@ -68,7 +67,7 @@ final class OAuth2Service {
 
 extension OAuth2Service {
     private func authTokenRequest(code: String) -> URLRequest? {
-        URLRequestBuilder.makeHTTPRequest(
+        builder.makeHTTPRequest(
             path: Constants.bearerToken
             + "?client_id=\(Constants.accessKey)"
             + "&&client_secret=\(Constants.secretKey)"

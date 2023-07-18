@@ -47,7 +47,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="224"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="cyC-jr-Kds" userLabel="Cell Image">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_stub" translatesAutoresizingMaskIntoConstraints="NO" id="cyC-jr-Kds" userLabel="Cell Image">
                                                     <rect key="frame" x="16" y="4" width="361" height="216"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
@@ -61,6 +61,9 @@
                                                     <rect key="frame" x="333" y="4" width="44" height="44"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="heart_active"/>
+                                                    <connections>
+                                                        <action selector="likedButtonClicked" destination="9WM-4z-xGb" eventType="touchUpInside" id="bCC-CU-4Ax"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76 августа 2049" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="re5-Tw-lxh" userLabel="Date Label">
                                                     <rect key="frame" x="24.000000000000007" y="196" width="102.66666666666669" height="16"/>
@@ -126,7 +129,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="bXr-zX-tWx">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="414" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="8cR-j1-q6o">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="414" image="image_stub" translatesAutoresizingMaskIntoConstraints="NO" id="8cR-j1-q6o">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                     </imageView>
                                 </subviews>
@@ -296,10 +299,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0" width="200" height="132"/>
         <image name="auth_screen_logo" width="60" height="60"/>
         <image name="backward_button" width="24" height="24"/>
         <image name="heart_active" width="44" height="44"/>
+        <image name="image_stub" width="343" height="252"/>
         <image name="nav_back_button" width="9" height="16"/>
         <image name="share_button" width="51" height="50"/>
         <namedColor name="yp_background">

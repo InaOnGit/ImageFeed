@@ -9,11 +9,13 @@ import Foundation
 
 final class URLRequestBuilder {
     static let shared = URLRequestBuilder()
-    static let storage: OAuth2TokenStorage = .shared// создаем отдельную зависимость для хранения токена
+    private let storage: OAuth2TokenStorage
     
-    private init() {} //добавлен по совету Г
+    init(storage: OAuth2TokenStorage = .shared) {
+        self.storage = storage
+    }
     
-    static func makeHTTPRequest(path: String, httpMethod: String, baseURL: String) -> URLRequest? {
+    func makeHTTPRequest(path: String, httpMethod: String, baseURL: String) -> URLRequest? {
         guard
             let url = URL(string: baseURL),
             let baseUrl = URL(string: path, relativeTo: url)

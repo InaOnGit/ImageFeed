@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Photo: Decodable, Equatable {
+struct Photo: Codable {
     let id: String
     let size: CGSize
     let createdAt: Date?
@@ -15,46 +15,29 @@ struct Photo: Decodable, Equatable {
     let thumbImageURL: String
     let largeImageURL: String
     let isLiked: Bool
+    
+    init(photoResult: PhotoResult, dateFormat: ISO8601DateFormatter) {
+        self.id = photoResult.id
+        self.size = CGSize(width: photoResult.width, height: photoResult.height)
+        self.createdAt = dateFormat.date(from: photoResult.createdAt ?? "")
+        self.welcomeDescription = photoResult.description ?? ""
+        self.thumbImageURL = photoResult.urls.thumb
+        self.largeImageURL = photoResult.urls.full
+        self.isLiked = photoResult.likedByUser
+    }
 }
 
-struct PhotoResult: Codable {
+struct PhotoResult: Decodable {
     let id: String
     let createdAt: String?
-    let updatedAt: String?
     let width: Int
     let height: Int
-    let color: String
-    let description: String
+    let description: String?
     let urls: UrlsResult
-    
-    private enum CodingKeys: String, CodingKey {
-        case id
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case width
-        case height
-        case color
-        case description
-        case urls
-    }
+    let likedByUser: Bool
 }
-    
-    struct UrlsResult: Codable {
-        let raw: String
-        let full: String
-        let regular: String
-        let small: String
-        let thumb: String
-    }
 
-extension Photo {
-    init(photoResult: PhotoResult) {
-        id = photoResult.id
-        size = CGSize(width: photoResult.width, height: photoResult.height)
-        createdAt = ISO8601DateFormatter().date(from: photoResult.createdAt ?? "")
-        welcomeDescription = photoResult.description
-        thumbImageURL = photoResult.urls.thumb
-        largeImageURL = photoResult.urls.regular
-        isLiked = false
-    }
+struct UrlsResult: Decodable {
+    let full: String
+    let thumb: String
 }
