@@ -24,8 +24,8 @@ final class URLRequestBuilder {
         var request = URLRequest(url: baseUrl)
         request.httpMethod = httpMethod
         
-        if let token = storage.token { //достает токен, полученный при запросе в OAuthService
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization") // модифицируем request с помощью функции setValue
+        if let token = storage.token { 
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         }
         return request
     }

@@ -53,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		A900CD5D2A190C2F000DEC7E /* UIColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColors.swift; sourceTree = "<group>"; };
+		A933DDA12A687BE1005B92BA /* ImageFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ImageFeedTests.xctest; path = "/Users/Ina/Desktop/sprints/sprint 8/ImageFeed/build/Debug-iphoneos/ImageFeedTests.xctest"; sourceTree = "<absolute>"; };
 		A9393DA92A0ADF46002464CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9393DAB2A0ADF46002464CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A9393DAD2A0ADF46002464CB /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		A9CEBF432A48571E00334CF9 /* ProfileStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStructures.swift; sourceTree = "<group>"; };
 		A9CEBF452A48633000334CF9 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
 		A9CEBF472A486DD700334CF9 /* OAuth2TokenResponseBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2TokenResponseBody.swift; sourceTree = "<group>"; };
-		A9D21D112A6460D000CE2BC3 /* ImageFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = ImageFeedTests.xctest; path = "/Users/Ina/Desktop/sprints/sprint 8/ImageFeed/build/Debug-iphoneos/ImageFeedTests.xctest"; sourceTree = "<absolute>"; };
 		A9D4037E2A23A34D00ADE598 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		A9D403812A23A4F500ADE598 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		A9F13B4A2A59B91800139DE4 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,13 +125,13 @@
 				A900CD5F2A190C68000DEC7E /* Helpers */,
 				A9393DA82A0ADF46002464CB /* ImageFeed */,
 				A9F13B4A2A59B91800139DE4 /* ImageFeed.app */,
+				A9F13B542A5AEA2800139DE4 /* ImageFeedTests */,
 				A986F19C2A0AF20400441AAF /* ImagesList */,
 				A985D4DF2A30CD3100384AA8 /* Network */,
 				A99E2BFD2A0FB9B30023F4E0 /* Profile */,
 				A9A4DCFD2A111CD200171B2D /* SingleImageViewController */,
 				A95D86662A33CF6700FC3DFF /* SplashViewController */,
 				A98701C72A5364D30084E1DD /* TabBar */,
-				A9F13B542A5AEA2800139DE4 /* ImageFeedTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -270,7 +270,7 @@
 			);
 			name = ImageFeedTests;
 			productName = ImageFeedTests;
-			productReference = A9D21D112A6460D000CE2BC3 /* ImageFeedTests.xctest */;
+			productReference = A933DDA12A687BE1005B92BA /* ImageFeedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
