@@ -150,13 +150,15 @@ final class ProfileViewController: UIViewController {
         }
     }
     
-    private func logout() {
-        OAuth2TokenStorage.shared.token = nil //Удаляем значение authToken из OAuth2TokenStorage
-        HTTPCookieStorage.shared.removeCookies(since: .distantPast)  // Очищаем куки (cookie) веб-браузера
-        let splashViewController = SplashViewController()
-        let navigationController = UINavigationController(rootViewController: splashViewController)
-        UIApplication.shared.windows.first?.rootViewController = navigationController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    func logout() {
+        OAuth2TokenStorage.shared.clean()
+        WebViewViewController.clean()
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            let window = windowScene.windows.first
+            
+            window?.rootViewController = SplashViewController()
+            window?.makeKeyAndVisible()
+        }
     }
     
     private func byebyeAlert(title: String, message: String, handler: @escaping () -> Void) {
