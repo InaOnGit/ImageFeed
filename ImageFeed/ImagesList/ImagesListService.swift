@@ -52,7 +52,6 @@ final class ImagesListService {
                     
                 case .failure(let error):
                     print("Fail to fetch photos \(error)")
-                    
                 }
             }
         }

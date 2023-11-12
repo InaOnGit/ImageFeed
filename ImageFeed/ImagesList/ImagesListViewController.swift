@@ -120,7 +120,7 @@ extension ImagesListViewController: ImagesListCellDelegate {
     
     func showLikeAlert(with error: Error) {
         let alert = UIAlertController(title: "Что-то пошло не так(", message: "Не удалось поставить лайк", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
 }

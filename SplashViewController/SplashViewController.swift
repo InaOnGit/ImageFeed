@@ -49,7 +49,7 @@ final class SplashViewController: UIViewController {
     
     private func checkAuthStatus() {
         if let token = authToken.token {
-            UIBlockingProgressHUD.show()
+            //UIBlockingProgressHUD.show()
             self.fetchProfile(token: token)
         } else {
             showAuthController()
@@ -62,7 +62,9 @@ final class SplashViewController: UIViewController {
             .instantiateViewController(withIdentifier: "AuthViewControllerID") as? AuthViewController else { return }
         authViewController.delegate = self
         authViewController.modalPresentationStyle = .fullScreen
-        present(authViewController, animated: true)
+        DispatchQueue.main.async {
+            self.present(authViewController, animated: true)
+        }
     }
     
     private func switchToTabBarController() {
@@ -86,6 +88,7 @@ extension SplashViewController: AuthViewControllerDelegate {
     private func fetchOAuthToken(_ code: String) {
         UIBlockingProgressHUD.show()
         authService.fetchOAuthToken(code) { [weak self] authResult in
+            UIBlockingProgressHUD.dismiss()
             guard let self = self else { return }
             switch authResult {
             case .success(let token):
@@ -93,30 +96,35 @@ extension SplashViewController: AuthViewControllerDelegate {
             case .failure(let error):
                 self.showLoginAlert(error: error)
             }
-            UIBlockingProgressHUD.dismiss()
         }
     }
     
     private func fetchProfile(token: String) {
+        UIBlockingProgressHUD.show()
         profileService.fetchProfile(token) { [weak self] profileResult in
-            guard let self = self else { return }
+            UIBlockingProgressHUD.dismiss()
+            guard let self = self else {
+                return
+                
+            }
             switch profileResult {
             case .success(_):
-                guard let user = self.profileService.profile?.username
-                else { return }
-                self.profileImageService.fetchProfileImageURL(userName: user) { _ in }
+                if let user = self.profileService.profile?.username {
+                    self.profileImageService.fetchProfileImageURL(userName: user) { _ in }
+                }
+                
                 self.switchToTabBarController()
             case .failure(let error):
                 self.showLoginAlert(error: error)
             }
-            UIBlockingProgressHUD.dismiss()
         }
     }
     
     private func showLoginAlert(error: Error) {
         alertPresenter.showAlert(title: "Что-то пошло не так",
-                                 message: "Не удалось войти в систему, \(error.localizedDescription)") {
-            self.performSegue(withIdentifier: self.showLoginFlowSegueIdentifier, sender: nil)
+                                 message: "Не удалось войти в систему, \(error.localizedDescription)") { [weak self] in
+            
+            self?.showAuthController()
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import WebKit
 
-fileprivate let UnsplashAuthorizedURLString = "https://unsplash.com/oauth/authorize"
+fileprivate let UnsplashAuthorizedURLString = "https://unsplash.com/oauth/authorize" // https://unsplash.com/login
 
 protocol WebViewViewControllerDelegate: AnyObject {
     func webViewViewController(_vc: WebViewViewController, didAuthenticateWithCode code: String)
