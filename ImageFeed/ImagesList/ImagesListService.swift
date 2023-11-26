@@ -122,6 +122,12 @@ final class ImagesListService {
             baseURL: Constants.defaultApiBaseURL
         )
     }
+    
+    func resetPhotos() {
+        photos.removeAll()
+        lastLoadedPage = nil
+        NotificationCenter.default.post(name: ImagesListService.didChangeNotification, object: nil)
+    }
 }
 
 extension Array {

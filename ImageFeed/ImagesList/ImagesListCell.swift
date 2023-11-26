@@ -52,7 +52,12 @@ final class ImagesListCell: UITableViewCell {
             }
         }
         
-        dateLabel.text = dateFormatter.string(from: photos.createdAt ?? Date())
+        let photos = photos
+        if let createdAt = photos.createdAt {
+            dateLabel.text = dateFormatter.string(from: createdAt)
+        } else {
+            dateLabel.text = ""
+        }
         setIsLiked(isLiked: photos.isLiked)
     }
     
