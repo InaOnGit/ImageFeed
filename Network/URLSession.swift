@@ -22,9 +22,11 @@ extension URLSession {
                let response = response,
                let statusCode = (response as? HTTPURLResponse)?.statusCode
             {
+                print ("\(request.url) \(String(data:data,encoding: String.Encoding.utf8))")
                 if 200 ..< 300 ~= statusCode {
                     do {
                         let decoder = JSONDecoder()
+                        decoder.keyDecodingStrategy = .convertFromSnakeCase
                         let result = try decoder.decode(T.self, from: data)
                         fulfillCompletionOnMainThread(.success(result))
                     } catch {

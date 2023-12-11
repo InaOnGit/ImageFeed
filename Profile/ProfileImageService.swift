@@ -14,7 +14,11 @@ final class ProfileImageService {
     
     private (set) var avatarURL: String?
     
-    private let urlBuilder = URLRequestBuilder.shared
+    private let builder: URLRequestBuilder
+    
+    init(builder: URLRequestBuilder = .shared) {
+        self.builder = builder
+    }
     
     func fetchProfileImageURL(userName: String, completion: @escaping (Result<String, Error>) -> Void) {
         assert(Thread.isMainThread)
@@ -45,7 +49,7 @@ final class ProfileImageService {
     }
     
     private func makeRequest(userName: String) -> URLRequest? {
-        URLRequestBuilder.makeHTTPRequest(
+        builder.makeHTTPRequest(
             path: "/users/\(userName)",
             httpMethod: "GET",
             baseURL: Constants.defaultApiBaseURL

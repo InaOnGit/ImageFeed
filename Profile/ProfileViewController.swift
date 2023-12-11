@@ -44,7 +44,7 @@ final class ProfileViewController: UIViewController {
         return label
     }()
     
-    private let logoutButton: UIButton = {
+    private lazy var logoutButton: UIButton = {
         let image = UIImage(named: "logout_pic")
         let button = UIButton()
         button.setImage(image, for: .normal)
@@ -146,7 +146,19 @@ final class ProfileViewController: UIViewController {
     @objc
     private func didTapLogoutButton() {
         byebyeAlert(title: "Пока-пока!", message: "Уверены, что хотите выйти?") {
-            // TODO: код для очистки всего после нажатия
+            self.logout()
+        }
+    }
+    
+    func logout() {
+        ImagesListService.shared.resetPhotos()
+        OAuth2TokenStorage.shared.clean()
+        WebViewViewController.clean()
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            let window = windowScene.windows.first
+            
+            window?.rootViewController = SplashViewController()
+            window?.makeKeyAndVisible()
         }
     }
     

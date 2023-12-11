@@ -21,7 +21,7 @@ final class ProfileService {
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void
     ) {
         assert(Thread.isMainThread)
-        currentTask?.cancel() // отмена предыдущего, не отвеченного запроса таск на сервер
+        currentTask?.cancel() 
         guard let request = makeFetchProfileRequest(token) else {
             assertionFailure("Invalid request")
             completion(.failure(NetworkError.invalidRequest))
@@ -47,7 +47,7 @@ final class ProfileService {
     }
     
     private func makeFetchProfileRequest(_ token: String) -> URLRequest? {
-        URLRequestBuilder.makeHTTPRequest(
+        return builder.makeHTTPRequest(
             path: "/me",
             httpMethod: "GET",
             baseURL: Constants.defaultApiBaseURL

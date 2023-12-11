@@ -5,15 +5,17 @@
 //  Created by Ina on 13/05/2023.
 //
 import UIKit
+import Kingfisher
 
 final class SingleImageViewController: UIViewController {
-    var image: UIImage! {
+    var image: URL? {
         didSet {
             guard isViewLoaded else { return }
-            imageView.image = image
-            rescaleAndCenterImageInScrollView(image: image)
+            loadImage(url: image)
         }
     }
+    
+    var photo: Photo?
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
@@ -27,18 +29,45 @@ final class SingleImageViewController: UIViewController {
                 activityItems: [image],
                 applicationActivities: nil
             )
-            
             share.overrideUserInterfaceStyle = .dark
             self.present(share, animated: true, completion: nil)
         }
     }
     
+    private let placeholder = UIImage(named: "image_stub")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = image
+        
         scrollView.minimumZoomScale = 0.1
         scrollView.maximumZoomScale = 1.25
-        rescaleAndCenterImageInScrollView(image: image)
+        loadImage(url: image)
+    }
+    
+    private func loadImage(url: URL?) {
+        guard url != nil else {
+            showAlert()
+            return
+        }
+        UIBlockingProgressHUD.show()
+        
+        imageView.kf.setImage(with: url) { [weak self] result in // a не (with: url)
+            UIBlockingProgressHUD.dismiss()
+            
+            guard let self = self else { return }
+            switch result {
+            case .success(let imageResult):
+                self.rescaleAndCenterImageInScrollView(image: imageResult.image)
+            case .failure:
+                self.showAlert()
+            }
+        }
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "Ошибка", message: "Не удалось загрузить изображение", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel))
+        present(alert, animated: true)
     }
     
     private func rescaleAndCenterImageInScrollView(image: UIImage) {
@@ -57,7 +86,6 @@ final class SingleImageViewController: UIViewController {
         let y = (newContentSize.height - visibleRectSize.height) / 2
         scrollView.setContentOffset(CGPoint(x:x, y:y), animated: false)
     }
-    
 }
 
 extension SingleImageViewController: UIScrollViewDelegate {

@@ -8,7 +8,7 @@
 import Foundation
 import WebKit
 
-fileprivate let UnsplashAuthorizedURLString = "https://unsplash.com/oauth/authorize"
+fileprivate let UnsplashAuthorizedURLString = "https://unsplash.com/oauth/authorize" // https://unsplash.com/login
 
 protocol WebViewViewControllerDelegate: AnyObject {
     func webViewViewController(_vc: WebViewViewController, didAuthenticateWithCode code: String)
@@ -107,6 +107,17 @@ extension WebViewViewController: WKNavigationDelegate {
             return codeItem.value
         } else {
             return nil
+        }
+    }
+}
+
+extension WebViewViewController {
+    static func clean() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default().fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            records.forEach { record in
+                WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+            }
         }
     }
 }
