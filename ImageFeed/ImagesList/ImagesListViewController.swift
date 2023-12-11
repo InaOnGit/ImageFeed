@@ -28,6 +28,7 @@ final class ImagesListViewController: UIViewController {
         }
         updateTableViewAnimated()
         imagesListService.fetchPhotoNextPage()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,9 +46,12 @@ final class ImagesListViewController: UIViewController {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row + 1 == photos.count {
-            let service = ImagesListService()
-            service.fetchPhotoNextPage()
+            imagesListService.fetchPhotoNextPage()
         }
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
     }
     
     func updateTableViewAnimated() {
@@ -55,10 +59,17 @@ final class ImagesListViewController: UIViewController {
         let newCount = imagesListService.photos.count
         photos = imagesListService.photos
         if oldCount != newCount {
+            guard newCount > 0 else{
+                tableView.performBatchUpdates {
+                    let indexPath = (0..<newCount).map { IndexPath(row: $0, section: 0) }
+                    tableView.deleteRows(at: indexPath, with: .automatic)
+                }
+                return
+            }
             tableView.performBatchUpdates {
                 let indexPath = (oldCount..<newCount).map { IndexPath(row: $0, section: 0) }
                 tableView.insertRows(at: indexPath, with: .automatic)
-            } completion: { _ in }
+            }
         }
     }
 }

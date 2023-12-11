@@ -151,6 +151,7 @@ final class ProfileViewController: UIViewController {
     }
     
     func logout() {
+        ImagesListService.shared.resetPhotos()
         OAuth2TokenStorage.shared.clean()
         WebViewViewController.clean()
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
