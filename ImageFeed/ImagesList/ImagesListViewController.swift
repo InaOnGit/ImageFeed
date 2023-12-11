@@ -28,7 +28,11 @@ final class ImagesListViewController: UIViewController {
         }
         updateTableViewAnimated()
         imagesListService.fetchPhotoNextPage()
+<<<<<<< HEAD
         
+=======
+    
+>>>>>>> a62a7ed0ad69127c9a703db4293e378ce19fb0ab
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,6 +53,9 @@ final class ImagesListViewController: UIViewController {
             imagesListService.fetchPhotoNextPage()
         }
     }
+       func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+           return photos.count
+       }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -59,9 +66,15 @@ final class ImagesListViewController: UIViewController {
         let newCount = imagesListService.photos.count
         photos = imagesListService.photos
         if oldCount != newCount {
+<<<<<<< HEAD
             guard newCount > 0 else{
                 tableView.performBatchUpdates {
                     let indexPath = (0..<newCount).map { IndexPath(row: $0, section: 0) }
+=======
+            guard newCount > 0 else {
+                tableView.performBatchUpdates {
+                    let indexPath = (0..<oldCount).map { IndexPath(row: $0, section: 0) }
+>>>>>>> a62a7ed0ad69127c9a703db4293e378ce19fb0ab
                     tableView.deleteRows(at: indexPath, with: .automatic)
                 }
                 return
